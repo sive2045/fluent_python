@@ -23,3 +23,16 @@ fmt = '{:15} | {:^9.4f} | {:^9.4f}'
 for name, cc, pop, (lat, lon) in metro_areas:
     if lon  <= 0:
         print(fmt.format(name, lat, lon))
+
+# nametuple examples
+from collections import namedtuple
+City = namedtuple('City', 'name country popluation coordinates')
+tokyo = City('Tokyo', 'JP', 36.966, (35.323, 139.2234))
+
+LatLong = namedtuple('LatLong', 'lat long')
+delhi_date = ('Delhi NCR', 'In', 21.935, LatLong(21.334, 77.208889))
+delhi = City._make(delhi_date)
+delhi._asdict()
+
+for key, value in delhi._asdict().items():
+    print(key + ':', value)
