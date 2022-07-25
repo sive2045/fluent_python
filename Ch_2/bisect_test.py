@@ -12,6 +12,10 @@ def demo(bisect_fn):
         offset = position * ' |'
         print(ROW_FMT.format(needle, position, offset))
 
+def grad(score, breakpoints=[60,70,80,90], grades='FDCBA'):
+    i = bisect.bisect(breakpoints, score)
+    return grades[i]
+
 if __name__ == '__main__':
     if sys.argv[-1] == 'left':
         bisect_fn = bisect.bisect_left
