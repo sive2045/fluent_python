@@ -1,0 +1,10 @@
+The way update handles its first argument 
+m is a prime example of duck typing 
+it first checks whether m has a keys method and 
+if it does assumes it is a mapping.
+Otherwise, update falls back to iterating over m, assuming its items are (key, value) pairs. 
+
+
+
+The constructor for most Python mappings uses the logic of update internally, 
+which means they can be initialized from other mappings or from any iterable object producing (key, value) pairs.
